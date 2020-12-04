@@ -1,5 +1,6 @@
 package com.orsys.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -12,19 +13,26 @@ import com.orsys.model.Vendeur;
 
 @Controller
 public class MainController {
+	static ArrayList<Vendeur> vendors=new ArrayList<Vendeur>();
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
 		Vendeur v=new Vendeur();
 		model.addAttribute("vendeur",v );
-		
+		model.addAttribute("vendeurs",vendors );
+
 		return "vendeur";
 	}
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveProduct(@ModelAttribute("vendeur") Vendeur vendeur,Model model) {
+	public String save(@ModelAttribute("vendeur") Vendeur vendeur,Model model) {
+		vendors.add(vendeur);
+model.addAttribute("vendeurs",vendors);
 		
-model.addAttribute("current",vendeur);
-		
-		return "single";
+		return "vendeur";
 	}
-	
+	@RequestMapping(value = "/gros", method = RequestMethod.GET)
+	public String gros(Model model) {
+model.addAttribute("vendeurs",vendors);
+		
+		return "gros";
+	}
 }
