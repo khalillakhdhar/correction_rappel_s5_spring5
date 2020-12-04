@@ -35,4 +35,10 @@ model.addAttribute("vendeurs",vendors);
 		
 		return "gros";
 	}
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String single(Model model) {
+model.addAttribute("vendeurs",vendors);
+		
+		return "single";
+	}
 }
