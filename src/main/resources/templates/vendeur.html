@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Nouveau vendeur</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Nouveau vendeur</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${vendeur}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>nom:</td>
+					<td><input type="text" th:field="*{nom}" /></td>
+				</tr>
+				<tr>
+					<td>categorie:</td>
+					<td><input type="text" th:field="*{categorie}" /></td>
+				</tr>
+				<tr>
+					<td>type:</td>
+					<td><input type="radio" value="gros" th:field="*{type}" />Gros<br>
+					<input type="radio" value="detaille" th:field="*{type}" />Détaille
+					</td>
+				</tr>
+				<tr>
+					<td>adresse:</td>
+					<td><input type="text" th:field="*{adresse}" /></td>
+				</tr>		
+					<tr>
+					<td>telephone:</td>
+					<td><input type="text" th:field="*{telephone}" /></td>
+				</tr>								
+				<tr>
+					<td colspan="2"><button type="submit">Ajouter</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
