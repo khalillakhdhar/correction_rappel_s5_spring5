@@ -23,8 +23,8 @@
 				</tr>
 				<tr>
 					<td>type:</td>
-					<td><input type="radio" value="gros" th:field="*{type}" />Gros<br>
-					<input type="radio" value="detaille" th:field="*{type}" />Détaille
+					<td><input type="radio" value="gros" th:field="*{type}" />gros<br>
+					<input type="radio" value="detail" th:field="*{type}" />Détaille
 					</td>
 				</tr>
 				<tr>
@@ -40,6 +40,14 @@
 				</tr>
 			</table>
 		</form>
+	
+	<table>
+	<tr><td>Nom</td><td>Catégorie</td><td>Type</td><td>Adresse</td><td>telephone</td></tr>
+	<tr th:each="vd : ${vendeurs}" th:if="${vd.type}=='gros'" ><div ><td th:text="${vd.nom}">Nom</td><td th:text="${vd.categorie}">Catégorie</td><td th:text="${vd.type}">Type</td><td th:text="${vd.adresse}">Adresse</td><td th:text="${vd.telephone}">telephone</td></div></tr>
+	</table>
+	<a href="gros">Grossistes</a>
+	<a href="detail">Petits vendeurs</a>
 	</div>
+	
 </body>
 </html>

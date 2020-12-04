@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>vendeur</title>
+<title>Insert title here</title>
 </head>
 <body>
-<ul >
- <li th:text="${current.nom}"> </li>
- <li th:text="${current.categorie}"> </li>
- <li th:text="${current.adresse}"> </li>
-  <li th:text="${current.telephone}"> </li>
-  <li th:text="${current.type}"> </li>
- 
- </ul>
+<table>
+	<tr><td>Nom</td><td>Catégorie</td><td>Type</td><td>Adresse</td><td>telephone</td></tr>
+	<tr th:each="vd : ${vendeurs}" th:if="${vd.type}=='detail'" ><div ><td th:text="${vd.nom}">Nom</td><td th:text="${vd.categorie}">Catégorie</td><td th:text="${vd.type}">Type</td><td th:text="${vd.adresse}">Adresse</td><td th:text="${vd.telephone}">telephone</td></div></tr>
+	</table>
 </body>
 </html>
