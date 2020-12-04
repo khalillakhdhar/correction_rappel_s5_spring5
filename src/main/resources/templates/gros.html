@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table>
+<table class="table table-bordered">
 	<tr><td>Nom</td><td>Catégorie</td><td>Type</td><td>Adresse</td><td>telephone</td></tr>
 	<tr th:each="vd : ${vendeurs}" th:if="${vd.type}=='gros'" ><div ><td th:text="${vd.nom}">Nom</td><td th:text="${vd.categorie}">Catégorie</td><td th:text="${vd.type}">Type</td><td th:text="${vd.adresse}">Adresse</td><td th:text="${vd.telephone}">telephone</td></div></tr>
 	</table>
